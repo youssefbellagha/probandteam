@@ -30,7 +30,7 @@
 
       
        
-        <li><a href="{{ url('countries') }}"><i class="fa fa-circle-o text-red"></i> <span>countries</span></a></li>
+        <li><a href="{{ url('countries') }}"><i class="fa fa-flag-o"></i> <span>countries</span></a></li>
        
       </ul>
     </section>

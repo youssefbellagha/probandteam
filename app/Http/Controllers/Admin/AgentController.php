@@ -16,6 +16,7 @@ class AgentController extends Controller
     { 
         $agents = Agent::paginate(5);
         
+        
         return view('Admin.agents.index',compact('agents'));
 
     }//end of index

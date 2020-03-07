@@ -82,11 +82,11 @@ class AgentController extends Controller
         $request->validate([
             'countrie_id' => 'required',
             'citie_id' => 'required',
-            'image' => 'mimes:jpeg,jpg,png,gif|required|max:10000',
+            'image' => 'mimes:jpeg,jpg,png,gif|max:10000',
             'first_name' => 'required',
             'last_name' => 'required',
             'address' => 'required',
-            'email' => 'required|unique:agents',
+            'email' => 'required',
             'password' => 'required|confirmed',
             'phone' => 'required',
             'gender' => 'required'

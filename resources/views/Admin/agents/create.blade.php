@@ -33,7 +33,7 @@
 
                         <div class="form-group">
                             <label>Country</label>
-                            <select name="countrie_id" class="form-control">
+                            <select name="countrie_id" id="countrie_id" class="form-control">
                                 <option value="">Country</option>
                                 @foreach ($countries as $country)
                                     <option value="{{ $country->id }}" {{ old('countrie_id') == $country->id ? 'selected' : '' }}>{{ $country->name }}</option>
@@ -43,7 +43,7 @@
 
                         <div class="form-group">
                             <label>City</label>
-                            <select name="citie_id" class="form-control">
+                            <select name="citie_id" id="citie_id" class="form-control">
                                 <option value="">City</option>
                                 @foreach ($citie as $city)
                                     <option value="{{ $city->id }}" {{ old('citie_id') == $city->id ? 'selected' : '' }}>{{ $city->name }}</option>
@@ -149,3 +149,29 @@
     </div><!-- end of content wrapper -->
 
 @endsection
+
+
+
+@section('js')
+  <script>
+    
+      $(document).ready(function() {
+
+$('#countrie_id').change(function(){
+    $id = $(this).val()
+        $('#citie_id').empty(); 
+        $citie = {!! json_encode($citie->toArray()) !!}
+            
+            $.each($citie, function(key, element) {
+                if(element.countrie_id == $id){
+                  $('#citie_id').append("<option value='" + element.id + "'>" + element.name + "</option>");  
+                }
+                
+            });
+    });
+
+
+      });
+  </script>
+
+  @endsection

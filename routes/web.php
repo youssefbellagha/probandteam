@@ -58,3 +58,61 @@ Route::group([
     Route::delete('/project/{project}','Admin\ProjectsController@destroy')
          ->name('projects.project.destroy')->where('id', '[0-9]+');
 });
+
+
+Route::group([
+    'prefix' => 'project_agents',
+], function () {
+    Route::get('/', 'Admin\ProjectAgentsController@index')
+         ->name('project_agents.project_agent.index');
+    Route::get('/create','Admin\ProjectAgentsController@create')
+         ->name('project_agents.project_agent.create');
+    Route::get('/show/{projectAgent}','Admin\ProjectAgentsController@show')
+         ->name('project_agents.project_agent.show')->where('id', '[0-9]+');
+    Route::get('/{projectAgent}/edit','Admin\ProjectAgentsController@edit')
+         ->name('project_agents.project_agent.edit')->where('id', '[0-9]+');
+    Route::post('/', 'Admin\ProjectAgentsController@store')
+         ->name('project_agents.project_agent.store');
+    Route::put('project_agent/{projectAgent}', 'Admin\ProjectAgentsController@update')
+         ->name('project_agents.project_agent.update')->where('id', '[0-9]+');
+    Route::delete('/project_agent/{projectAgent}','Admin\ProjectAgentsController@destroy')
+         ->name('project_agents.project_agent.destroy')->where('id', '[0-9]+');
+});
+
+
+
+Route::group([
+    'prefix' => 'services',
+], function () {
+    Route::get('/', 'Admin\ServicesController@index')
+         ->name('services.service.index');
+    Route::get('/create','Admin\ServicesController@create')
+         ->name('services.service.create');
+    Route::get('/show/{service}','Admin\ServicesController@show')
+         ->name('services.service.show')->where('id', '[0-9]+');
+    Route::get('/{service}/edit','Admin\ServicesController@edit')
+         ->name('services.service.edit')->where('id', '[0-9]+');
+    Route::post('/', 'Admin\ServicesController@store')
+         ->name('services.service.store');
+    Route::put('service/{service}', 'Admin\ServicesController@update')
+         ->name('services.service.update')->where('id', '[0-9]+');
+    Route::delete('/service/{service}','Admin\ServicesController@destroy')
+         ->name('services.service.destroy')->where('id', '[0-9]+');
+});
+
+
+
+
+
+Route::group([
+    'prefix' => 'emails',
+], function () {
+    Route::get('/', 'Admin\EmailsController@index')
+         ->name('emails.email.index');
+   
+    Route::get('/show/{email}','Admin\EmailsController@show')
+         ->name('emails.email.show')->where('id', '[0-9]+');
+    
+    Route::delete('/email/{email}','Admin\EmailsController@destroy')
+         ->name('emails.email.destroy')->where('id', '[0-9]+');
+});

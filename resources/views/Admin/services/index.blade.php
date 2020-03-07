@@ -13,35 +13,26 @@
 
         </div>
     @endif
-        <section class="content-header">
-
-            <h1>Projects</h1>
-
-            <ol class="breadcrumb">
-                <li><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li class="active">Projects</li>
-            </ol>
-        </section>
 
     <div class="panel panel-default">
 
         <div class="panel-heading clearfix">
 
             <div class="pull-left">
-                <h4 class="mt-5 mb-5">Projects</h4>
+                <h4 class="mt-5 mb-5">Services</h4>
             </div>
 
             <div class="btn-group btn-group-sm pull-right" role="group">
-                <a href="{{ route('projects.project.create') }}" class="btn btn-success" title="Create New Project">
+                <a href="{{ route('services.service.create') }}" class="btn btn-success" title="Create New Service">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </div>
 
         </div>
         
-        @if(count($projects) == 0)
+        @if(count($services) == 0)
             <div class="panel-body text-center">
-                <h4>No Projects Available.</h4>
+                <h4>No Services Available.</h4>
             </div>
         @else
         <div class="panel-body panel-body-with-table">
@@ -50,36 +41,31 @@
                 <table class="table table-striped ">
                     <thead>
                         <tr>
-                            <th>Photo</th>
-                             <th>Name</th>
-                            <th>Decreption</th>
+                            <th>Name</th>
 
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($projects as $project)
+                    @foreach($services as $service)
                         <tr>
-                            <td class="margin">
-                    <img src="{{ url('/' . $project->photo) }}" style="border-radius: 50%;height:100px;width:100px;">  </td>
-                            <td>{{ $project->name }}</td>
-                            <td>{{ $project->decreption }}</td>
+                            <td>{{ $service->name }}</td>
 
                             <td>
 
-                                <form method="POST" action="{!! route('projects.project.destroy', $project->id) !!}" accept-charset="UTF-8">
+                                <form method="POST" action="{!! route('services.service.destroy', $service->id) !!}" accept-charset="UTF-8">
                                 <input name="_method" value="DELETE" type="hidden">
                                 {{ csrf_field() }}
 
                                     <div class="btn-group btn-group-xs pull-right" role="group">
-                                        <a href="{{ route('projects.project.show', $project->id ) }}" class="btn btn-info" title="Show Project">
+                                        <a href="{{ route('services.service.show', $service->id ) }}" class="btn btn-info" title="Show Service">
                                             <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
                                         </a>
-                                        <a href="{{ route('projects.project.edit', $project->id ) }}" class="btn btn-primary" title="Edit Project">
+                                        <a href="{{ route('services.service.edit', $service->id ) }}" class="btn btn-primary" title="Edit Service">
                                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                         </a>
 
-                                        <button type="submit" class="btn btn-danger" title="Delete Project" onclick="return confirm(&quot;Click Ok to delete Project.&quot;)">
+                                        <button type="submit" class="btn btn-danger" title="Delete Service" onclick="return confirm(&quot;Click Ok to delete Service.&quot;)">
                                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                         </button>
                                     </div>
@@ -96,7 +82,7 @@
         </div>
 
         <div class="panel-footer">
-            {!! $projects->render() !!}
+            {!! $services->render() !!}
         </div>
         
         @endif

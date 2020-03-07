@@ -33,7 +33,27 @@
         <li><a href="{{ url('countries') }}"><i class="fa fa-flag-o"></i> <span>countries</span></a></li>
         <li><a href="{{route('agents.index')}}"><i class="fa fa-users"></i><span>Agents</span></a></li>
 
-        <li><a href="{{route('projects.project.index')}}"><i class="fa fa-tasks"></i><span>Projects</span></a></li>
+        <li><a href="{{route('services.service.index')}}"><i class="fa fa-list-ul"></i><span>Services</span></a></li>
+
+      
+
+
+          <li class="treeview">
+        <a href="#"><i class="fa fa fa-tasks"></i> <span>Projects</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+        <ul class="treeview-menu">
+          <li><a href="{{route('projects.project.index')}}">Projects</a></li>
+          <li><a href="{{route('project_agents.project_agent.index')}}">Project Agents</a></li>
+        </ul>
+      </li>
+
+
+   <li><a href="{{route('emails.email.index')}}"><i class="fa fa-envelope"></i><span>Email</span></a></li>
+
+
 
         
        

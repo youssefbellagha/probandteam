@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class project_agent extends Model
 {
     
 
@@ -13,7 +13,7 @@ class Project extends Model
      *
      * @var string
      */
-    protected $table = 'projects';
+    protected $table = 'project_agents';
 
     /**
     * The database primary key value.
@@ -28,10 +28,8 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-                  'name',
-                  'photo',
-                  'decreption',
-                  'service_id'
+                  'projet_id',
+                  'Agent_id'
               ];
 
     /**
@@ -48,11 +46,26 @@ class Project extends Model
      */
     protected $casts = [];
     
-  public function service()
+    /**
+     * Get the projet for this model.
+     *
+     * @return App\Models\Projet
+     */
+    public function projet()
     {
-        //
-        return $this->belongsTo('App\Models\service');
+        return $this->belongsTo('App\Models\Project','projet_id');
     }
+
+    /**
+     * Get the agent for this model.
+     *
+     * @return App\Models\Agent
+     */
+    public function agent()
+    {
+        return $this->belongsTo('App\Models\Agent','Agent_id');
+    }
+
 
 
 }

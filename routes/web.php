@@ -33,3 +33,7 @@ $countrie = Countrie::find($id);
    // dd($ctiy);
     return $ctiy;
 });
+
+
+//agent routes
+Route::resource('agents', 'Admin\AgentController')->except(['show']);

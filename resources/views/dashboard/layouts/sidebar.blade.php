@@ -31,6 +31,7 @@
       
        
         <li><a href="{{ url('countries') }}"><i class="fa fa-flag-o"></i> <span>countries</span></a></li>
+        <li><a href="{{route('agents.index')}}"><i class="fa fa-users"></i><span>Agents</span></a></li>
        
       </ul>
     </section>

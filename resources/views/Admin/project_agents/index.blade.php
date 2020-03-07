@@ -13,13 +13,14 @@
 
         </div>
     @endif
-        <section class="content-header">
 
-            <h1>Projects</h1>
+    <section class="content-header">
+
+            <h1>Projects Agents</h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li class="active">Projects</li>
+                <li class="active">Projects Agents</li>
             </ol>
         </section>
 
@@ -28,20 +29,20 @@
         <div class="panel-heading clearfix">
 
             <div class="pull-left">
-                <h4 class="mt-5 mb-5">Projects</h4>
+                <h4 class="mt-5 mb-5">Project Agents</h4>
             </div>
 
             <div class="btn-group btn-group-sm pull-right" role="group">
-                <a href="{{ route('projects.project.create') }}" class="btn btn-success" title="Create New Project">
+                <a href="{{ route('project_agents.project_agent.create') }}" class="btn btn-success" title="Create New Project Agent">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </div>
 
         </div>
         
-        @if(count($projects) == 0)
+        @if(count($projectAgents) == 0)
             <div class="panel-body text-center">
-                <h4>No Projects Available.</h4>
+                <h4>No Project Agents Available.</h4>
             </div>
         @else
         <div class="panel-body panel-body-with-table">
@@ -50,36 +51,33 @@
                 <table class="table table-striped ">
                     <thead>
                         <tr>
-                            <th>Photo</th>
-                             <th>Name</th>
-                            <th>Decreption</th>
+                            <th>Projet</th>
+                            <th>Agent</th>
 
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($projects as $project)
+                    @foreach($projectAgents as $projectAgent)
                         <tr>
-                            <td class="margin">
-                    <img src="{{ url('/' . $project->photo) }}" style="border-radius: 50%;height:100px;width:100px;">  </td>
-                            <td>{{ $project->name }}</td>
-                            <td>{{ $project->decreption }}</td>
+                            <td>{{ optional($projectAgent->projet)->name }}</td>
+                            <td>{{ optional($projectAgent->agent)->formattedName() }}</td>
 
                             <td>
 
-                                <form method="POST" action="{!! route('projects.project.destroy', $project->id) !!}" accept-charset="UTF-8">
+                                <form method="POST" action="{!! route('project_agents.project_agent.destroy', $projectAgent->id) !!}" accept-charset="UTF-8">
                                 <input name="_method" value="DELETE" type="hidden">
                                 {{ csrf_field() }}
 
                                     <div class="btn-group btn-group-xs pull-right" role="group">
-                                        <a href="{{ route('projects.project.show', $project->id ) }}" class="btn btn-info" title="Show Project">
+                                        <a href="{{ route('project_agents.project_agent.show', $projectAgent->id ) }}" class="btn btn-info" title="Show Project Agent">
                                             <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
                                         </a>
-                                        <a href="{{ route('projects.project.edit', $project->id ) }}" class="btn btn-primary" title="Edit Project">
+                                        <a href="{{ route('project_agents.project_agent.edit', $projectAgent->id ) }}" class="btn btn-primary" title="Edit Project Agent">
                                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                         </a>
 
-                                        <button type="submit" class="btn btn-danger" title="Delete Project" onclick="return confirm(&quot;Click Ok to delete Project.&quot;)">
+                                        <button type="submit" class="btn btn-danger" title="Delete Project Agent" onclick="return confirm(&quot;Click Ok to delete Project Agent.&quot;)">
                                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                         </button>
                                     </div>
@@ -96,7 +94,7 @@
         </div>
 
         <div class="panel-footer">
-            {!! $projects->render() !!}
+            {!! $projectAgents->render() !!}
         </div>
         
         @endif

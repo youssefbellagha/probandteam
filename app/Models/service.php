@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class service extends Model
 {
     
 
@@ -13,7 +13,7 @@ class Project extends Model
      *
      * @var string
      */
-    protected $table = 'projects';
+    protected $table = 'services';
 
     /**
     * The database primary key value.
@@ -28,10 +28,7 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-                  'name',
-                  'photo',
-                  'decreption',
-                  'service_id'
+                  'name'
               ];
 
     /**
@@ -48,11 +45,11 @@ class Project extends Model
      */
     protected $casts = [];
     
-  public function service()
+  public function Project()
     {
         //
-        return $this->belongsTo('App\Models\service');
-    }
+        return $this->hasMany('App\Models\Project');
+    } 
 
 
 }

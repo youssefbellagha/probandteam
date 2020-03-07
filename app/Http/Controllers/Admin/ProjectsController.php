@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Exception;
+use App\Models\service;
 
 class ProjectsController extends Controller
 {
@@ -29,9 +30,9 @@ class ProjectsController extends Controller
      */
     public function create()
     {
+        $services = service::all();
         
-        
-        return view('Admin.projects.create');
+        return view('Admin.projects.create', compact('services'));
     }
 
     /**
@@ -68,6 +69,7 @@ class ProjectsController extends Controller
      */
     public function show($id)
     {
+        $services = service::all();
         $project = Project::findOrFail($id);
 
         return view('Admin.projects.show', compact('project'));
@@ -83,9 +85,8 @@ class ProjectsController extends Controller
     public function edit($id)
     {
         $project = Project::findOrFail($id);
-        
-
-        return view('Admin.projects.edit', compact('project'));
+        $services = service::all();
+        return view('Admin.projects.edit', compact('project','services'));
     }
 
     /**
@@ -149,6 +150,8 @@ class ProjectsController extends Controller
                 'name' => 'string|min:1|max:255|nullable',
             'photo' => ['file','nullable'],
             'decreption' => 'string|min:1|nullable', 
+            'service_id' => 'numeric|min:0|max:4294967295|nullable', 
+            
         ];
         
         $data = $request->validate($rules);

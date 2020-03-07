@@ -11,7 +11,7 @@
     <label for="photo" class="col-md-2 control-label">Photo</label>
     <div class="col-md-10">
         <div class="input-group uploaded-file-group">
-                  <img id="blah" src="http://chittagongit.com//images/icon-avatars/icon-avatars-20.jpg" alt=" " style="height:260px;width:260px;border-radius: 50%;border-style: solid;border-width:2px;border-color:#3C8DBC;"/>
+                  <img id="blah" src=" {{ old('photo', url('/' . optional($project)->photo)) }}" alt=" " style="height:260px;width:260px;border-radius: 50%;border-style: solid;border-width:2px;border-color:#3C8DBC;"/>
                     <input type="file" name="photo" id="photo" class=" {{ $errors->has('photo') ? 'is-invalid' : '' }}" onchange="readURL(this);" id="photo" style="text-align:center;">
                      {!! $errors->first('photo', '<div class="alert-validate" data-validate=":message">:message</div>') !!}
         
@@ -37,6 +37,24 @@
     <div class="col-md-10">
         <input class="form-control" name="decreption" type="text" id="decreption" value="{{ old('decreption', optional($project)->decreption) }}" minlength="1" placeholder="Enter decreption here...">
         {!! $errors->first('decreption', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
+
+
+<div class="form-group {{ $errors->has('service_id') ? 'has-error' : '' }}">
+    <label for="service_id" class="col-md-2 control-label">service</label>
+    <div class="col-md-10">
+        <select class="form-control" id="service_id" name="service_id">
+                <option value="" style="display: none;" {{ old('service_id', optional($project)->service_id ?: '') == '' ? 'selected' : '' }} disabled selected>Enter service here...</option>
+           @foreach($services as $service)
+                <option value="{{ $service->id }}" {{ old('service_id', optional($project)->service_id) == $service->id ? 'selected' : '' }}>
+                    {{ $service->name }}
+                </option>
+            @endforeach
+        </select>
+        
+        {!! $errors->first('service_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 

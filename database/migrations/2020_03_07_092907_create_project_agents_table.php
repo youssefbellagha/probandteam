@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateProjectsTable extends Migration
+class CreateProjectAgentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,12 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function(Blueprint $table)
+        Schema::create('project_agents', function(Blueprint $table)
         {
             $table->increments('id');
             $table->timestamps();
-            $table->string('name', 255)->nullable();
-            $table->string('photo')->nullable();
-            $table->string('decreption')->nullable();
-            $table->integer('service_id')->unsigned()->nullable()->index();
+            $table->integer('projet_id')->unsigned()->nullable()->index();
+            $table->integer('Agent_id')->unsigned()->nullable()->index();
 
         });
     }
@@ -31,6 +29,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('projects');
+        Schema::drop('project_agents');
     }
 }

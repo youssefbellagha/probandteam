@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Email extends Model
 {
     
 
@@ -13,7 +13,7 @@ class Project extends Model
      *
      * @var string
      */
-    protected $table = 'projects';
+    protected $table = 'emails';
 
     /**
     * The database primary key value.
@@ -28,9 +28,10 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
+                  'email',
                   'name',
-                  'photo',
-                  'decreption',
+                  'message',
+                  'phone',
                   'service_id'
               ];
 
@@ -48,11 +49,16 @@ class Project extends Model
      */
     protected $casts = [];
     
-  public function service()
+    /**
+     * Get the service for this model.
+     *
+     * @return App\Models\Service
+     */
+    public function service()
     {
-        //
-        return $this->belongsTo('App\Models\service');
+        return $this->belongsTo('App\Models\Service','service_id');
     }
+
 
 
 }

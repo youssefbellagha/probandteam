@@ -37,3 +37,24 @@ $countrie = Countrie::find($id);
 
 //agent routes
 Route::resource('agents', 'Admin\AgentController')->except(['show']);
+
+
+
+Route::group([
+    'prefix' => 'projects',
+], function () {
+    Route::get('/', 'Admin\ProjectsController@index')
+         ->name('projects.project.index');
+    Route::get('/create','Admin\ProjectsController@create')
+         ->name('projects.project.create');
+    Route::get('/show/{project}','Admin\ProjectsController@show')
+         ->name('projects.project.show')->where('id', '[0-9]+');
+    Route::get('/{project}/edit','Admin\ProjectsController@edit')
+         ->name('projects.project.edit')->where('id', '[0-9]+');
+    Route::post('/', 'Admin\ProjectsController@store')
+         ->name('projects.project.store');
+    Route::put('project/{project}', 'Admin\ProjectsController@update')
+         ->name('projects.project.update')->where('id', '[0-9]+');
+    Route::delete('/project/{project}','Admin\ProjectsController@destroy')
+         ->name('projects.project.destroy')->where('id', '[0-9]+');
+});

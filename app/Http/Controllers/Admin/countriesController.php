@@ -20,7 +20,7 @@ class countriesController extends Controller
           $countries = Countries::all();
           $mycountries = Countrie::all();
           $mycitie = Citie::all();
-
+ 
         return view('Admin.Countries.index',compact('countries','mycountries','mycitie'));
     }
 

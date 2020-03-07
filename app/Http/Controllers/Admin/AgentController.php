@@ -32,6 +32,7 @@ class AgentController extends Controller
     public function store(Request $request)
     {
 
+
         $request->validate([
             'countrie_id' => 'required',
             'citie_id' => 'required',
@@ -57,7 +58,7 @@ class AgentController extends Controller
                 $filename = time().'.'.$ext;
                 $file->move('upload/user_images/',$filename);
 
-            $request_data['image'] = $filename;
+            $request_data['image'] = 'upload/user_images/'.$filename;
 
         }//end of if
 
@@ -101,7 +102,7 @@ class AgentController extends Controller
             $filename = time().'.'.$ext;
             $file->move('upload/user_images/',$filename);
 
-        $request_data['image'] = $filename;
+        $request_data['image'] = 'upload/user_images/'.$filename;
 
     }//end of if
 

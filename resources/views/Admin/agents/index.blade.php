@@ -50,7 +50,7 @@
                             @foreach ($agents as $index=>$agent)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td><img src="{{ asset('upload/user_images/'.$agent->image.'') }}" style="border-radius: 50%;height:100px;width:100px;"  alt=""></td>
+                                    <td><img src="{{ asset($agent->image) }}" style="border-radius: 50%;height:100px;width:100px;"  alt=""></td>
                                     <td>{{ $agent->formattedName() }}</td>
                                     <td>{{ $agent->email }}</td>
                                     <td>{{ $agent->phone }}</td>
@@ -79,7 +79,9 @@
 
                         </table><!-- end of table -->
                         
-                        {{-- {{ $agents->appends(request()->query())->links() }} --}}
+                        <div class="container pagination-lg">
+                            {{ $agents->appends(request()->query())->links() }}
+                        </div>
                         
                     @else
                         

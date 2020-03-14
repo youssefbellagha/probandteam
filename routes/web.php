@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Input;
 use App\Models\Countrie; 
 use App\Models\Citie;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'FrontController@welcome');
 
 // Auth::routes();
 // hide register button

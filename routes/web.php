@@ -116,3 +116,8 @@ Route::group([
     Route::delete('/email/{email}','Admin\EmailsController@destroy')
          ->name('emails.email.destroy')->where('id', '[0-9]+');
 });
+
+
+
+Route::post('addimage','Admin\ProjectsController@addimage')->name('addimage');
+Route::post('deleteimage','Admin\ProjectsController@deleteimage')->name('deleteimage');

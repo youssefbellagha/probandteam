@@ -26,6 +26,10 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+
+
 // show login form before redirect to dashboard
 Route::group(['middleware' => 'auth'], function(){
 
@@ -84,7 +88,8 @@ Route::group(['middleware' => 'auth'], function(){
           ->name('project_agents.project_agent.destroy')->where('id', '[0-9]+');
      });
 
-
+Route::post('addimage','Admin\ProjectsController@addimage')->name('addimage');
+Route::post('deleteimage','Admin\ProjectsController@deleteimage')->name('deleteimage');
 
      Route::group([
           'prefix' => 'services',
@@ -118,3 +123,4 @@ Route::group(['middleware' => 'auth'], function(){
           ->name('emails.email.destroy')->where('id', '[0-9]+');
      });
 });
+

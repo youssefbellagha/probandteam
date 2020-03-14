@@ -7,6 +7,7 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use Exception;
 use App\Models\service;
+use App\Models\Project_Image;
 
 class ProjectsController extends Controller
 {
@@ -86,7 +87,8 @@ class ProjectsController extends Controller
     {
         $project = Project::findOrFail($id);
         $services = service::all();
-        return view('Admin.projects.edit', compact('project','services'));
+          $images = Project_Image::where('Project_id',$project->id)->get();
+        return view('Admin.projects.edit', compact('project','services','images'));
     }
 
     /**
@@ -194,5 +196,41 @@ class ProjectsController extends Controller
         $path = config('codegenerator.files_upload_path', 'uploads');
 
         return substr($saved, 7);
+    }
+
+
+
+
+          public function addimage(Request $request)
+    {
+
+
+      $file = $request->file('photo');
+            $ext = $file->getClientOriginalExtension();
+
+            $filename = time().'.'.$ext;
+
+            $file->move('upload/project_image/',$filename);
+$path = 'upload/project_image/'.$filename;
+
+  $image = new Project_Image();
+  $image->Project_id = $request->project;
+  $image->photo = $path;
+  $image->save();
+
+   
+return($request);
+
+    }
+
+
+    public function deleteimage(Request $request)
+    {
+
+  $image= Project_Image::find($request->id);
+  $image->delete();
+   
+return($request);
+
     }
 }

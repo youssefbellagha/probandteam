@@ -14,7 +14,8 @@ class AgentController extends Controller
 
     public function index()
     { 
-        $agents = Agent::all();
+        $agents = Agent::paginate(5);
+        
         
         return view('Admin.agents.index',compact('agents'));
 

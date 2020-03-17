@@ -18,13 +18,14 @@ use App\Models\Citie;
 //     return view('welcome');
 // });
 
-Route::get('/', 'FrontController@welcome');
+Route::get('/', 'FrontController@welcome')->name('welcome');
 Route::get('/allprojects', 'FrontController@allprojects')->name('all_projects');
 Route::get('/single/project/{id}', 'FrontController@singleproject')->name('single_projects');
 Route::get('/testimonials', 'FrontController@testimonial')->name('testimonials');
 Route::get('/service/{id}', 'FrontController@service')->name('service');
 Route::get('/about', 'FrontController@about')->name('about');
 Route::get('/contact', 'FrontController@contact')->name('contact');
+Route::post('/email', 'FrontController@email')->name('email');
 
 
 // Auth::routes();

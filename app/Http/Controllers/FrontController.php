@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Agent;
 use App\Models\Client;
+use App\Models\Email;
 use App\Models\Project;
 use App\Models\Project_Image;
 use App\Models\service;
 use App\Models\Team;
+use Exception;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -57,5 +59,22 @@ class FrontController extends Controller
     public function contact()
     {
         return view('Front.contact')->with('services',service::all());
+    }
+
+    public function email(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'message' => 'required',
+            'service_id' => 'required',
+            'phone' => 'required'
+        ]);
+
+        $request_data = $request->all();
+
+        Email::create($request_data);
+
+        return redirect()->route('welcome');
     }
 }

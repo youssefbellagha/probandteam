@@ -18,7 +18,7 @@ class EmailsController extends Controller
      */
     public function index()
     {
-        $emails = Email::with('service')->paginate(25);
+        $emails = Email::with('service')->orderBy('id','desc')->paginate(25);
 
         return view('Admin.emails.index', compact('emails'));
     }

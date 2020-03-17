@@ -53,6 +53,8 @@
     </div>
 </nav>
 
+@include('partials._session')
+
     <section class="homeSec">
         <!-- Header -->
         <div class="container-fluid  test">

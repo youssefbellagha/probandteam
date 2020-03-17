@@ -3,13 +3,13 @@
 <section class="customer-say">
     <div class="article-section wow bounceInUp">
 
-        <form method="POST" action=" " accept-charset="UTF-8" id="addForm"><input name="_token" type="hidden"
-                value="  ">
+        <form method="POST" action="{{ route('email') }}" accept-charset="UTF-8" id="addform" name="addform" class="form-horizontal" >
+            {{ csrf_field() }}
 
             <div class="form-group">
                 <label>الأسم<span class="danger"> * </span></label>
 
-                <input class="form-control" id="input_name" name="name" type="text">
+                <input class="form-control" id="input_name" name="name" type="text" required>
 
                 <label id="contact_name" class="error_sms"></label>
             </div>
@@ -17,7 +17,7 @@
             <div class="form-group">
                 <label>البريد الالكتروني<span class="danger"> * </span></label>
 
-                <input class="form-control" id="input_email" name="email" type="email">
+                <input class="form-control" id="input_email" name="email" type="email" required>
 
                 <label id="contact_email" class="error_sms"></label>
             </div>
@@ -25,7 +25,7 @@
             <div class="form-group">
                 <label>رقم الجوال<span class="danger"> * </span></label>
 
-                <input class="form-control" id="input_mobile" name="mobile" type="number">
+                <input class="form-control" id="input_mobile" name="phone" type="number" required>
 
                 <label id="contact_mobile" class="error_sms"></label>
             </div>
@@ -36,7 +36,7 @@
                     name="service_id">
                     <option selected="selected" value="">اختر الخدمة</option>
                     @foreach ($services as $service)
-                      <option value="{{$service->name}}">{{$service->name}}</option>
+                      <option value="{{$service->id}}" required>{{$service->name}}</option>
                     @endforeach
                 </select>
                 <label id="contact_service_id" class="error_sms"></label>
@@ -46,13 +46,13 @@
 
                 <label> هل لديك ملاحظات؟ <span style="color: green">قم بكتابتها بالاسفل</span></label>
                 <br>
-                <textarea rows="7" name="body" id="contact-texterea"></textarea>
+                <textarea rows="7" name="message" id="contact-texterea" required></textarea>
 
             </div>
 
             <div class="text-center">
 
-                <button type="button" class="btn btn-primary" id="contact_button">
+                <button type="submit" class="btn btn-primary" id="contact_button">
                     ارسال
                 </button>
 

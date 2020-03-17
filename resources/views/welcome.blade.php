@@ -15,7 +15,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link hvr-rotate"
-                    href="page/%d8%a7%d8%a8%d8%af%d8%a7%d8%b9-%d8%aa%d9%83-%d9%84%d9%84%d8%a8%d8%b1%d9%85%d8%ac%d9%8a%d8%a7%d8%aa.html">من
+                    href="{{ route('about') }}">من
                     نحن
                 </a>
             </li>
@@ -33,18 +33,18 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="projects.html">أعمالنا</a>
+                <a class="nav-link" href="{{route('all_projects')}}">أعمالنا</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="mailto:jobs@ekramy.no3man@gmail.com">الوظائف</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="testimonials.html">أراء عملائنا</a>
+                <a class="nav-link" href="{{route('testimonials')}}">أراء عملائنا</a>
 
             </li>
             <li class="navbar-btns">
-                <a href="contacts.html" class="btn btn-primary my-sm-0">تواصل معنا</a>
-                <a target="_blank" href="#" class="btn btn-success  my-sm-0"><i class="fab fa-whatsapp whats"></i>
+                <a href="{{route('contact')}}" class="btn btn-primary my-sm-0">تواصل معنا</a>
+                <a target="_blank" href="" class="btn btn-success  my-sm-0"><i class="fab fa-whatsapp whats"></i>
                     <span style="direction: ltr">واتساب</span>
                 </a>
             </li>
@@ -63,7 +63,7 @@
                 <div class="col-md-6 descTitle">
                     <h1 class="head-text wow bounceInDown " data-wow-duration="0.5s" data-wow-delay="0.5s">وينجز .. لمن
                         يقدرون الدقة مع السرعة <br />و الخبرة مع الإبداع</h1>
-                    <a href="contacts.html" class="btn btn-primary mb-5   my-2 my-sm-0"> أنطلق معنا</a>
+                    <a href="{{route('contact')}}" class="btn btn-primary mb-5   my-2 my-sm-0"> أنطلق معنا</a>
 
                 </div>
             </div>
@@ -305,7 +305,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="align">
-                    <a class="one" href="/allprojects">
+                    <a class="one" href="{{route('all_projects')}}">
                         <button class="btn watch-more hvr-bob">شاهد كل أعمالنا</button>
                     </a>
                 </div>

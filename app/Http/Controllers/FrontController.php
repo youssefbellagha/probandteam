@@ -48,4 +48,14 @@ class FrontController extends Controller
         return view('Front.service')->with('services',service::all())
                                     ->with('service', service::findOrFail($id));
     }
+
+    public function about()
+    {
+        return view('Front.about')->with('services',service::all());
+    }
+
+    public function contact()
+    {
+        return view('Front.contact')->with('services',service::all());
+    }
 }

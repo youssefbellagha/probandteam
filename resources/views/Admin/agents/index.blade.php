@@ -58,10 +58,20 @@
                                     <td>{{ $agent->Citie->name }}</td>
                                     <td>{{ $agent->address }}</td>
                                     <td>{{ $agent->gender }}</td>
-                                    <td> <a href="{{ URL($agent->facebook) }}"><i class="fa fa-facebook-square fa-6" aria-hidden="true" style="font-size:30px; color: #4267B2"></i></a>
+                                    <td> 
+                                        @if($agent->facebook != null)
+                                        <a href="{{ URL($agent->facebook) }}"><i class="fa fa-facebook-square fa-6" aria-hidden="true" style="font-size:30px; color: #4267B2"></i></a>
+                                          @endif
+                                        @if($agent->instagram != null)
                                     <a href="{{ URL($agent->instagram) }}"><i class="fa fa-instagram fa-6" aria-hidden="true" style="font-size:30px; color: #D5307F"></i></a>
-                                    <a href="{{ URL($agent->youtube) }}"><i class="fa fa-youtube fa-6" aria-hidden="true" style="font-size:30px; color:#FF0000"></i></a>
-                                    <a href="{{ URL($agent->twitter) }}"><i class="fa fa-twitter fa-6" aria-hidden="true" style="font-size:30px"></i></a></td>
+                                    @endif
+                                    @if($agent->github != null)
+                                    <a href="{{ URL($agent->github) }}"><i class="fa fa-github fa-6" aria-hidden="true" style="font-size:30px; color:#FF0000"></i></a>
+                                      @endif
+                                    @if($agent->twitter != null)
+                                    <a href="{{ URL($agent->twitter) }}"><i class="fa fa-twitter fa-6" aria-hidden="true" style="font-size:30px"></i></a>
+                                  @endif
+                              </td>
                                     <td>
                                             <a href="{{ route('agents.edit', $agent->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> Edit</a>
 

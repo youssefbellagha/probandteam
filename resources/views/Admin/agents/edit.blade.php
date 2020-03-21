@@ -92,8 +92,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Youtube</label>
-                            <input type="text" name="youtube" class="form-control" value="{{ $agent->youtube }}">
+                            <label>Github</label>
+                            <input type="text" name="github" class="form-control" value="{{ $agent->github }}">
                         </div>
 
                         <div class="form-group">

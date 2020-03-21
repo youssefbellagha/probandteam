@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 class FrontController extends Controller
 {
     public function welcome()
+
     {
         return view('welcome')->with('services',service::all())
                               ->with('projects', Project::orderBy('id','desc')->take(6)->get())
@@ -49,6 +50,7 @@ class FrontController extends Controller
     {
         return view('Front.service')->with('services',service::all())
                                     ->with('service', service::findOrFail($id));
+
     }
 
     public function about()

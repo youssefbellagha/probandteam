@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Agent extends Model
 {
     protected $fillable = [
-        'countrie_id','citie_id','image','first_name','last_name','address','email','password','phone','facebook','instagram','youtube','twitter','gender',
+        'countrie_id','citie_id','image','first_name','last_name','address','email','password','phone','facebook','instagram','github','twitter','gender',
     ];
 
     public function Countrie(){

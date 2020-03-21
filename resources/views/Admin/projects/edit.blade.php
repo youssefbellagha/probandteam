@@ -20,6 +20,7 @@
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <style>
+
 .product-slider {  }
 
 .product-slider #carousel { border: 4px solid #1089c0; margin: 0; }
@@ -136,11 +137,11 @@
             <ul class="nav nav-tabs">
            
               <li class=""><a href="#img" data-toggle="tab">Project Image</a></li>
-              <li><a href="#add_img" data-toggle="tab">Add image</a></li>
+              <li><a href="#add_img"  data-toggle="tab">Add image</a></li>
             
             </ul>
             <div class="tab-content">
-              <div class="active tab-pane" id="img">
+              <div class=" tab-pane" id="img">
      <div class="product-slider">
   <div id="carousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">

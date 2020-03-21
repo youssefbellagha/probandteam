@@ -19,6 +19,10 @@ use App\Models\Citie;
 // });
 
 Route::get('/', 'FrontController@welcome');
+Route::get('/allprojects', 'FrontController@allprojects')->name('all_projects');
+Route::get('/single/project/{id}', 'FrontController@singleproject')->name('single_projects');
+Route::get('/testimonials', 'FrontController@testimonial')->name('testimonials');
+Route::get('/service/{id}', 'FrontController@service')->name('service');
 
 // Auth::routes();
 // hide register button
@@ -45,6 +49,12 @@ Route::group(['middleware' => 'auth'], function(){
           return $ctiy;
      });
 
+     //client routes
+     Route::resource('clients', 'Admin\ClientController')->except(['show']);
+
+     //team routes
+     Route::resource('team', 'Admin\TeamController')->except(['show']);
+     
 
      //agent routes
      Route::resource('agents', 'Admin\AgentController')->except(['show']);

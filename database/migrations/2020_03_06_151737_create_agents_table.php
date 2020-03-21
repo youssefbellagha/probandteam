@@ -26,7 +26,7 @@ class CreateAgentsTable extends Migration
             $table->string('phone')->unique();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
-            $table->string('youtube')->nullable();
+            $table->string('github')->nullable();
             $table->string('twitter')->nullable();
             $table->string('gender');
             $table->rememberToken();

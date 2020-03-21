@@ -52,8 +52,6 @@
 
   <li><a href="{{route('clients.index')}}"><i class="fa fa-list-ul"></i><span>Clients</span></a></li>
 
-  <li><a href="{{route('team.index')}}"><i class="fa fa-list-ul"></i><span>Team</span></a></li>
-
 
    <li><a href="{{route('emails.email.index')}}"><i class="fa fa-envelope"></i><span>Email</span></a></li>
 

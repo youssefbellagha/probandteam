@@ -21,7 +21,7 @@ class FrontController extends Controller
                               ->with('projects', Project::orderBy('id','desc')->take(6)->get())
                               ->with('allprojects',Project::all())
                               ->with('clients',Client::all())
-                              ->with('team', Team::all())
+                              ->with('agents', Agent::all())
     
     ;}
     

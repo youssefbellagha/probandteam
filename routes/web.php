@@ -55,11 +55,7 @@ Route::group(['middleware' => 'auth'], function(){
 
      //client routes
      Route::resource('clients', 'Admin\ClientController')->except(['show']);
-
-     //team routes
-     Route::resource('team', 'Admin\TeamController')->except(['show']);
      
-
      //agent routes
      Route::resource('agents', 'Admin\AgentController')->except(['show']);
 
